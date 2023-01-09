@@ -7,6 +7,12 @@
       "dependencies": {},
       "hash": "ef70a49ae26c375925c9ad3ccfb98240b13411c0"
     },
+    "com.sharelib.logviewer": {
+      "version": "file:Unity-Logs-Viewer",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,

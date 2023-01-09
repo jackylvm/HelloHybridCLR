@@ -591,3 +591,5 @@ Temporary Items
 .apdisk
 
 !/[Pp]ackages/Unity-Logs-Viewer/
+!/[Pp]ackages/manifest.json
+!/[Pp]ackages/packages-lock.json

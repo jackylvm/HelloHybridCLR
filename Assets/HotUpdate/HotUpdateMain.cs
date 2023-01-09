@@ -1,3 +1,4 @@
+using HotUpdate;
 using UnityEngine;
 
 public class HotUpdateMain : MonoBehaviour
@@ -10,7 +11,9 @@ public class HotUpdateMain : MonoBehaviour
         Debug.LogFormat("hello, {0}.", text);
 
         gameObject.AddComponent<CreateByCode>();
+        gameObject.AddComponent<HotfixTest>();
 
         Debug.Log("=======看到此条日志代表你成功运行了示例项目的热更新代码=======");
+        Debug.Log("=======热更测试,看到这行输出,说明热更成功=======");
     }
 }

@@ -9,5 +9,6 @@ public class AOTGenericReferences : UnityEngine.MonoBehaviour
 
 	public void RefMethods()
 	{
+		// System.Object UnityEngine.GameObject::AddComponent<System.Object>()
 	}
 }

@@ -4,6 +4,8 @@
 /Assets/HybridCLRBuildCache/
 /Build/
 /Temp/
+/Release-*
+/Build-*
 
 ### VisualStudioCode template
 .vscode/*

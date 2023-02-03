@@ -1,10 +1,7 @@
-﻿using HybridCLR.Editor.Commands;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HybridCLR.Editor.Commands;
 using UnityEditor;
 using UnityEngine;
 
@@ -45,7 +42,7 @@ namespace HybridCLR.Editor
         {
             Directory.CreateDirectory(tempDir);
             Directory.CreateDirectory(outputDir);
-            
+
             List<AssetBundleBuild> abs = new List<AssetBundleBuild>();
 
             {
@@ -106,6 +103,7 @@ namespace HybridCLR.Editor
                     Debug.LogError($"ab中添加AOT补充元数据dll:{srcDllPath} 时发生错误,文件不存在。裁剪后的AOT dll在BuildPlayer时才能生成，因此需要你先构建一次游戏App后再打包。");
                     continue;
                 }
+
                 string dllBytesPath = $"{aotAssembliesDstDir}/{dll}.bytes";
                 File.Copy(srcDllPath, dllBytesPath, true);
                 Debug.Log($"[CopyAOTAssembliesToStreamingAssets] copy AOT dll {srcDllPath} -> {dllBytesPath}");
@@ -118,7 +116,11 @@ namespace HybridCLR.Editor
 
             string hotfixDllSrcDir = SettingsUtil.GetHotUpdateDllsOutputDirByTarget(target);
             string hotfixAssembliesDstDir = Application.streamingAssetsPath;
+#if NEW_HYBRIDCLR_API
+            foreach (var dll in SettingsUtil.HotUpdateAssemblyFilesExcludePreserved)
+#else
             foreach (var dll in SettingsUtil.HotUpdateAssemblyFiles)
+#endif
             {
                 string dllPath = $"{hotfixDllSrcDir}/{dll}";
                 string dllBytesPath = $"{hotfixAssembliesDstDir}/{dll}.bytes";
@@ -138,7 +140,7 @@ namespace HybridCLR.Editor
                 string srcAb = ToRelativeAssetPath($"{outputDir}/{ab}");
                 string dstAb = ToRelativeAssetPath($"{streamingAssetPathDst}/{ab}");
                 Debug.Log($"[CopyAssetBundlesToStreamingAssets] copy assetbundle {srcAb} -> {dstAb}");
-                AssetDatabase.CopyAsset( srcAb, dstAb);
+                AssetDatabase.CopyAsset(srcAb, dstAb);
             }
         }
     }

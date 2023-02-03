@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ef70a49ae26c375925c9ad3ccfb98240b13411c0"
+      "hash": "f2b5f233df9710fe4edfc33526ce500f1933e747"
     },
     "com.sharelib.logviewer": {
       "version": "file:Unity-Logs-Viewer",
@@ -99,7 +99,7 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.burst": {
-      "version": "1.7.3",
+      "version": "1.8.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -176,7 +176,7 @@
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
-        "com.unity.burst": "1.7.3",
+        "com.unity.burst": "1.8.2",
         "com.unity.render-pipelines.core": "12.1.8",
         "com.unity.shadergraph": "12.1.8"
       }
